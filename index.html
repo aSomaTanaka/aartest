@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>β2 タイトル自動取得 テストコンテンツ一覧</title>
+<style>body{font-family:sans-serif;margin:24px}table{border-collapse:collapse}td,th{border:1px solid #999;padding:6px 10px;vertical-align:top}th{background:#eee}</style>
+</head>
+<body>
+<h1>β2 タイトル自動取得 テストコンテンツ一覧</h1>
+<p>対象機能：資料リンクのタイトル自動取得（AAR_AI-1076 / REQ-LSN-SP-02-3-1）。行番号はExcelの行番号。</p>
+<table>
+<tr><th>ファイル</th><th>内容</th><th>対応する試験項目（シート／行）</th></tr>
+<tr><td><a href="01_og_title_both.html">01_og_title_both.html</a></td><td>og:title・&lt;title&gt;の両方あり（og:title採用）。日本語タイトル（UTF-8）の表示確認も兼ねる</td><td>総合テスト項目書／試験表 144〜152, 153, 157, 165〜167行目<br>相互互換試験項目書／iPad-Safari 35〜38, 48行、Win-Edge 35〜38, 51行、Win-Chrome 26, 27, 39行<br>回帰試験項目書／先生_試験表 47行目<br>※146（http）・147（https）は入力URLのスキームを変えて使用。httpsは社内サーバー側の対応可否に依存</td></tr>
+<tr><td><a href="02_og_empty_title_ok.html">02_og_empty_title_ok.html</a></td><td>og:titleが整形後に空、&lt;title&gt;は有効（title採用）</td><td>総合テスト項目書／試験表 154行目</td></tr>
+<tr><td><a href="03_no_og_title_only.html">03_no_og_title_only.html</a></td><td>og:titleなし、&lt;title&gt;のみ</td><td>総合テスト項目書／試験表 155行目</td></tr>
+<tr><td><a href="04_og_only_no_title.html">04_og_only_no_title.html</a></td><td>og:titleのみ、&lt;title&gt;なし</td><td>総合テスト項目書／試験表 156行目</td></tr>
+<tr><td><a href="05_format_noise.html">05_format_noise.html</a></td><td>前後の空白・改行・制御文字・HTMLタグを含む</td><td>総合テスト項目書／試験表 158行目</td></tr>
+<tr><td><a href="06_title_long_over31.html">06_title_long_over31.html</a></td><td>51文字（32文字以上・1,000文字以下）</td><td>総合テスト項目書／試験表 159行目（31文字上限の仕様確認用）</td></tr>
+<tr><td><a href="07_title_long_over1000.html">07_title_long_over1000.html</a></td><td>1,100文字（1,001文字以上）</td><td>総合テスト項目書／試験表 159行目（1,000文字上限の仕様確認用）</td></tr>
+<tr><td><a href="08_no_title_at_all.html">08_no_title_at_all.html</a></td><td>og:title・&lt;title&gt;ともになし（取得失敗）</td><td>総合テスト項目書／試験表 160行目</td></tr>
+<tr><td><a href="09_title_empty_after_format.html">09_title_empty_after_format.html</a></td><td>og:title・&lt;title&gt;はあるが整形後に空（取得失敗）</td><td>総合テスト項目書／試験表 161行目</td></tr>
+<tr><td><a href="10_og_title_second.html">10_og_title_second.html</a></td><td>#1とは別タイトルのページ</td><td>総合テスト項目書／試験表 149行目（取得中のURL変更）、165・166行目（URL変更）</td></tr>
+</table>
+<p>※SSRF対策（総合 163行目）は内部アドレスを入力する試験のため、テストコンテンツは不要。<br>※タイムアウト（総合 162行目）・取得中のキャンセル/追加ボタン（151, 152行目）は、#1などを使用し、デベロッパツールでネットワーク速度を制限して確認する。</p>
+</body>
+</html>
